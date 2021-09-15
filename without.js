@@ -34,17 +34,29 @@ const eqArrays = function (arrayOne, arrayTwo) {
 // if itemstoremove !== source, push into new array
 // return new array
 
-
-
 const without = function (source, itemsToRemove) {
   let newArr = [];
-  for (let entries in source) {
-    if (!itemsToRemove.includes(source[entries])) {
-      newArr.push(source[entries]);
+  for (let i = 0; i < source.length; i++) {
+    for (let j = 0; j < itemsToRemove.length; j++) {
+      if (source[i] !== itemsToRemove[j]) {
+        newArr.push(source[i]);
+      }
     }
   }
   return newArr;
 }
+
+
+
+// const without = function (source, itemsToRemove) {
+//   let newArr = [];
+//   for (let entries in source) {
+//     if (!itemsToRemove.includes(source[entries])) {
+//       newArr.push(source[entries]);
+//     }
+//   }
+//   return newArr;
+// }
 
 const actual = without([1, 2, 3], [2]);
 const expected = [2, 3];
